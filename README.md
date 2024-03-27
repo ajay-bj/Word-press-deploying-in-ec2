@@ -2,17 +2,23 @@
 word press deployment
 
 # DBName=database name for wordpress
+
 # DBUser=mariadb user for wordpress
+
 # DBPassword=password for the mariadb user for wordpress
+
 # DBRootPassword = root password for mariadb
 
+
 # STEP 1 - Configure Authentication Variables which are used below
+
 DBName='a4lwordpress'
 DBUser='a4lwordpress'
 DBPassword='4n1m4l$4L1f3'
 DBRootPassword='4n1m4l$4L1f3'
 
 # STEP 2 - Install system software - including Web and DB
+
 sudo dnf install wget php-mysqlnd httpd php-fpm php-mysqli mariadb105-server php-json php php-devel -y
 
 
@@ -25,10 +31,12 @@ sudo systemctl start mariadb
 
 
 # STEP 4 - Set Mariadb Root Password
+
 sudo mysqladmin -u root password $DBRootPassword
 
 
 # STEP 5 - Install Wordpress
+
 sudo wget http://wordpress.org/latest.tar.gz -P /var/www/html
 cd /var/www/html
 sudo tar -zxvf latest.tar.gz
